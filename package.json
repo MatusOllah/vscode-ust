@@ -1,8 +1,14 @@
 {
   "name": "utau-ust",
-  "displayName": "UST",
-  "description": "Language support for UTAU Sequence Text",
+  "displayName": "UTAU Sequence Text",
+  "description": "Language support for UTAU Sequence Text (UST)",
   "version": "0.0.1",
+  "publisher": "Matúš Ollah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatusOllah/vscode-ust"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -12,13 +18,13 @@
   "contributes": {
     "languages": [{
       "id": "ust",
-      "aliases": ["UTAU Sequence Text", "ust"],
+      "aliases": ["UTAU Sequence Text", "UST", "ust"],
       "extensions": [".ust"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
       "language": "ust",
-      "scopeName": "source.ini",
+      "scopeName": "source.ust",
       "path": "./syntaxes/ust.tmLanguage.json"
     }]
   }
