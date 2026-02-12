@@ -2,19 +2,10 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "UTAU Sequence Text",
 	"patterns": [
-		{ "include": "#sections" },
 		{ "include": "#flags" },
 		{ "include": "source.ini" }
 	],
 	"repository": {
-		"sections": {
-			"patterns": [
-				{
-					"name": "entity.name.section.ust",
-					"match": "^\\[#(VERSION|SETTING|PREV|NEXT|TRACKEND|\\d{4})\\]"
-				}
-			]
-		},
 		"flags": {
   			"patterns": [
     			{
