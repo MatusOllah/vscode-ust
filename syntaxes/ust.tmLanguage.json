@@ -3,6 +3,7 @@
 	"name": "UTAU Sequence Text",
 	"patterns": [
 		{ "include": "#sections" },
+		{ "include": "#flags" },
 		{ "include": "source.ini" }
 	],
 	"repository": {
@@ -11,6 +12,18 @@
 				{
 					"name": "entity.name.section.ust",
 					"match": "^\\[#(VERSION|SETTING|PREV|NEXT|TRACKEND|\\d{4})\\]"
+				}
+			]
+		},
+		"flags": {
+			"patterns": [
+				{
+  					"name": "keyword.operator.flag.ust",
+  					"match": "(?<=Flags=)[A-Za-z]"
+				},
+				{
+  					"name": "constant.numeric.flag.ust",
+  					"match": "(?<=Flags=[A-Za-z])[-+]?\\d+"
 				}
 			]
 		}
