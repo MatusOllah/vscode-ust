@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "UST",
+	"name": "UTAU Sequence Text",
 	"patterns": [
 		{ "include": "#sections" },
 		{ "include": "source.ini" }
