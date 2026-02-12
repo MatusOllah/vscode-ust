@@ -16,16 +16,25 @@
 			]
 		},
 		"flags": {
-			"patterns": [
-				{
-  					"name": "keyword.operator.flag.ust",
-  					"match": "(?<=Flags=)[A-Za-z]"
-				},
-				{
-  					"name": "constant.numeric.flag.ust",
-  					"match": "(?<=Flags=[A-Za-z])[-+]?\\d+"
-				}
-			]
+  			"patterns": [
+    			{
+     				"begin": "(Flags)(=)",
+      				"beginCaptures": {
+        				"1": { "name": "keyword.other.flags.ust" }
+      				},
+      				"end": "$",
+      				"patterns": [
+        				{
+          					"name": "keyword.operator.flag.ust",
+          					"match": "[A-Za-z]+"
+        				},
+        				{
+          					"name": "constant.numeric.flag.ust",
+          					"match": "[-+]?\\d+"
+        				}
+      				]
+    			}
+  			]
 		}
 	},
 	"scopeName": "source.ust"
