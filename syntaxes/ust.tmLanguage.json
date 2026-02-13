@@ -2,16 +2,62 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "UTAU Sequence Text",
 	"patterns": [
+		{ "include": "#version" },
+		{ "include": "#numbers" },
+		{ "include": "#strings" },
+		{ "include": "#booleans" },
 		{ "include": "#flags" },
+		{ "include": "#pitchbend" },
 		{ "include": "source.ini" }
 	],
 	"repository": {
+		"version": {
+			"patterns": [
+				{
+					"name": "string.unquoted.ust",
+					"match": "UST Version\\d+\\.\\d+"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.ust",
+					"match": "[+-]?\\d+(\\.\\d+)?"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "(Project|ProjectName|VoiceDir|CacheDir|OutFile|Tool1|Tool2|Lyric)(=)",
+					"beginCaptures": {
+        				"1": { "name": "keyword.control.ust" }
+      				},
+      				"end": "$",
+      				"patterns": [
+        				{
+							"name": "string.unquoted.ust",
+							"match": ".*"
+						}
+      				]
+				}
+			]
+		},
+		"booleans": {
+			"patterns": [
+				{
+					"name": "keyword.control.ust",
+					"match": "[Tt]rue|[Ff]alse"
+				}
+			]
+		},
 		"flags": {
   			"patterns": [
     			{
      				"begin": "(Flags)(=)",
       				"beginCaptures": {
-        				"1": { "name": "keyword.other.flags.ust" }
+        				"1": { "name": "keyword.control.ust" }
       				},
       				"end": "$",
       				"patterns": [
@@ -26,6 +72,31 @@
       				]
     			}
   			]
+		},
+		"pitchbend": {
+			"patterns": [
+				{
+					"begin": "(PBStart|PBS|PBW|PBY|PBM)(=)",
+					"beginCaptures": {
+        				"1": { "name": "keyword.control.ust" }
+      				},
+      				"end": "$",
+					"patterns": [
+						{
+          					"name": "punctuation.separator.ust",
+          					"match": "[;,]"
+        				},
+						{
+							"name": "constant.numeric.ust",
+							"match": "[+-]?\\d+(\\.\\d+)?"
+						},
+						{
+							"name": "string.unquoted.ust",
+							"match": "[a-zA-Z]"
+						}
+					]
+				}
+			]
 		}
 	},
 	"scopeName": "source.ust"
