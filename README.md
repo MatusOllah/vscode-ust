@@ -7,7 +7,7 @@ UTAU Sequence Text (UST) is the project file format used by **UTAU**, the singin
 ## ✨ Features
 
 * Syntax highlighting for .ust files
-* Syntax highlighting for UST flags (`Flags=...`)
+* Syntax highlighting for UST values (strings, numbers, flags, pitchbend, etc...)
 * Clean and seamless integration
 
 ## 📦 Installation
