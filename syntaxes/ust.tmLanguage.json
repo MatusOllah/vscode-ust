@@ -48,7 +48,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.ust",
-					"match": "[Tt]rue|[Ff]alse"
+					"match": "[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]"
 				}
 			]
 		},
